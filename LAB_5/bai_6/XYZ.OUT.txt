@@ -1,0 +1,10 @@
+--- Khach Hang x --- 
+Ten khach hang : Cong Ty Cong Nghe X
+So tien phai tra : 22000000
+--- Khach Hang y --- 
+Ten khach hang : Dai Ly Phan Phoi Y
+So tien phai tra : 4125000
+--- Khach Hang z --- 
+Ten khach hang : Khach Hang Vang Z
+So tien phai tra : 2750000
+Tong tien cong ty thu duoc : 28875000
