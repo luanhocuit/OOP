@@ -10,4 +10,4 @@ run :
 	./baitap3.exe
 	
 clean :
-	rm -f *.o 
+	rm -f *.o *.exe
