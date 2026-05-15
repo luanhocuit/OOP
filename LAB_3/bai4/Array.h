@@ -1,6 +1,9 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 
+#include <iostream>
+using namespace std ;
+
 class cArray {
 private :
     int n ;

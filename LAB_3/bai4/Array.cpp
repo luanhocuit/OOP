@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstdlib>  // thư viện cho rand, srand
 #include <ctime>   // thư viện cho time
-
+#include <climits>
 using namespace std ;
 
 #include "Array.h"
