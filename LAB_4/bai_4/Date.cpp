@@ -57,7 +57,7 @@ ostream& operator << (ostream& out, const cDate &x) {
     return out ;
 }
 // Hàm tính tổng số ngày 
-long long cDate::convertToDays() {
+long long cDate::convertToDays() const {
     long long days = 0 ;
     // Tính số ngày của các năm trước năm x.iNam
     for (int i = 1 ; i < iNam ; i++) {
@@ -131,18 +131,24 @@ cDate operator -- (cDate &a, int) {
     return tmp ;
 } ;
 // Hàm tính khoảng cách giữa 2 ngày a và b
-long long operator - (cDate &a, cDate &b) {
-    long long tmp = abs(a.convertToDays() - b.convertToDays()) ;
+long long operator - (const cDate &a, const cDate &b) {
+    long long tmp = a.convertToDays() - b.convertToDays() ;
     return tmp ; // Trả về số ngày giữa 2 ngày a và b
 } ;
 // Hàm tính lãi suất đơn sau (b - a) ngày với lãi suất r%/năm
-double LaiSuatDon(cDate a, cDate b, double x, double r) {
+double LaiSuatDon(const cDate &a, const cDate &b, double x, double r) {
     long long tmp = b - a ; 
+    if (tmp < 0) {
+        cout << "Khong tinh duoc !" ; return 0 ;
+    }
     // Lãi đơn = Số tiền gốc + (Số tiền gốc * lãi suất * số ngày / 365) (do tính lãi theo năm nên chia cho 365)
     return x + (x  * r / 100.0 * tmp / 365.0) ;
 } ;
 // Hàm tính lãi suất kép sau (b - a) ngày với lãi suất r%/năm
-double LaiSuatKep(cDate a, cDate b, double x, double r) {
+double LaiSuatKep(const cDate &a, const cDate &b, double x, double r) {
+    if (b - a < 0) {
+        cout << "Khong tinh duoc !" ; return 0 ;
+    }
     double n = (b - a) / 365.0 ;
     // Lãi kép = Số tiền gốc * (1 + lãi suất)^(số năm) <số năm = số ngày / 365>
     return x * pow(1 + (r / 100), n) ;

@@ -13,7 +13,7 @@ public :
     friend int dayInMonth(int m, int y) ;
     friend istream& operator >> (istream& in, cDate &a) ;
     friend ostream& operator << (ostream& out, const cDate &a) ;
-    long long convertToDays() ;
+    long long convertToDays() const ;
     friend cDate ConvertToDate(long long days) ;
     friend cDate operator + (cDate &a, int x) ;
     friend cDate operator - (cDate &a, int x) ;
@@ -21,9 +21,9 @@ public :
     friend cDate operator ++ (cDate &a, int) ;
     friend cDate operator -- (cDate &a) ;
     friend cDate operator -- (cDate &a, int) ;
-    friend long long operator - (cDate &a, cDate &b) ;
-    friend double LaiSuatDon(cDate a, cDate b, double x, double r) ;
-    friend double LaiSuatKep(cDate a, cDate b, double x, double r) ;
+    friend long long operator - (const cDate &a, const cDate &b) ;
+    friend double LaiSuatDon(const cDate &a, const cDate &b, double x, double r) ;
+    friend double LaiSuatKep(const cDate &a, const cDate &b, double x, double r) ;
     ~cDate() ;
 } ;
 #endif

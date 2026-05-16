@@ -1,17 +1,9 @@
 #include <iostream>
+#include <algorithm>
 using namespace std ;
 
 #include "PhanSo.h"
 
-// Thuật toán Euclid => Tìm UCLN
-int GCD(int a, int b) {
-    while(b != 0) {
-        int r = a % b ;
-        a = b ;
-        b = r ;
-    }
-    return a ;
-}
 // Constructor chứa tham số => nếu khởi tạo không có tham số thì gán giá trị mặc định là tử = 0 , mẫu = 1
 PS::PS(int tu, int mau) {
     iTu = tu ;
@@ -40,6 +32,10 @@ istream& operator >> (istream& in, PS &a) {
         }
         else break ;
     }
+    if (a.iMau < 0) {
+        a.iTu = -a.iTu ;
+        a.iMau = -a.iMau ;
+    }
     return in ;
 }
 
@@ -58,7 +54,7 @@ void PS::rutgon() {
         iMau = 1 ;
         return ;
     }
-    int tmp = GCD(iTu, iMau) ; 
+    int tmp = __gcd(iTu, iMau) ; 
     // Chia tử và mẫu cho UCLN của tử và mẫu
     iTu /= tmp ;
     iMau /= tmp ;

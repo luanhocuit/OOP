@@ -21,7 +21,7 @@ istream& operator >> (istream& in, SoPhuc &x) {
 ostream& operator << (ostream& out, SoPhuc &x) {
     out << x.iThuc ; // In ra phần thực trước
     if(x.iAo < 0) {  // Nếu phần ảo < 0 => in ra dấu -
-        out << " - " << x.iAo << 'i' ;
+        out << " - " << abs(x.iAo) << 'i' ;
     }
     else if(x.iAo > 0) {// Nếu phần ảo > 0 => in ra dấu +
         out << " + " << x.iAo << 'i' ;

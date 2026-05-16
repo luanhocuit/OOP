@@ -7,7 +7,7 @@ int main() {
     PS a, b;
     cout << "Nhap phan so thu nhat : \n" ; cin >> a;
     cout << "Nhap phan so thu hai :\n"; cin >> b;
-
+    
     cout << "Hai phan so vua nhap :\n";
     cout << "a = " << a ;
     cout << "b = " << b ;
