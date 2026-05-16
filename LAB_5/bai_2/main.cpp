@@ -4,6 +4,47 @@
 
 using namespace std;
 
+void inLuaChon(int choice, QuanLiGiaoDich quanLi) {
+    switch (choice) {
+        case 1: {
+            Dat* d = new Dat();
+            d->nhap();
+            quanLi.themGiaoDichDat(d);
+            break;
+        }
+        case 2: {
+            Nha* n = new Nha();
+            n->nhap();
+            quanLi.themGiaoDichNha(n);
+            break;
+        }
+        case 3: {
+            ChungCu* c = new ChungCu();
+            c->nhap();
+            quanLi.themGiaoDichChungCu(c);
+            break;
+        }
+        case 4:
+            quanLi.tinhTongSoLuongTungLoai();
+            break;
+        case 5:
+            cout << "\nTrung binh thanh tien Can ho chung cu: " 
+                << fixed << setprecision(0) << quanLi.trungBinhThanhTienChungCu() << " (dong)\n";
+            break;
+        case 6:
+            quanLi.xuatNhaGiaTriCaoNhat();
+            break;
+        case 7:
+            quanLi.xuatGiaoDichThang12Nam2024();
+            break;
+        case 0:
+            cout << "Dang thoat chuong trinh...\n";
+            break;
+        default:
+            cout << "Lua chon khong hop le. Vui long nhap lai!\n";
+    }
+}
+
 int main() {
     QuanLiGiaoDich quanLi;
     int choice;
@@ -22,44 +63,7 @@ int main() {
         cout << "Nhap lua chon cua ban: ";
         cin >> choice;
 
-        switch (choice) {
-            case 1: {
-                Dat* d = new Dat();
-                d->nhap();
-                quanLi.themGiaoDichDat(d);
-                break;
-            }
-            case 2: {
-                Nha* n = new Nha();
-                n->nhap();
-                quanLi.themGiaoDichNha(n);
-                break;
-            }
-            case 3: {
-                ChungCu* c = new ChungCu();
-                c->nhap();
-                quanLi.themGiaoDichChungCu(c);
-                break;
-            }
-            case 4:
-                quanLi.tinhTongSoLuongTungLoai();
-                break;
-            case 5:
-                cout << "\nTrung binh thanh tien Can ho chung cu: " 
-                     << fixed << setprecision(0) << quanLi.trungBinhThanhTienChungCu() << " (dong)\n";
-                break;
-            case 6:
-                quanLi.xuatNhaGiaTriCaoNhat();
-                break;
-            case 7:
-                quanLi.xuatGiaoDichThang12Nam2024();
-                break;
-            case 0:
-                cout << "Dang thoat chuong trinh...\n";
-                break;
-            default:
-                cout << "Lua chon khong hop le. Vui long nhap lai!\n";
-        }
+        inLuaChon(choice, quanLi) ;
     } while (choice != 0);
 
     return 0;

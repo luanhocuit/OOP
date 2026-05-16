@@ -16,12 +16,12 @@ public:
     void themCaoDang();
     void themDaiHoc();
     
-    void xuatTatCa() const;               // Câu b
-    void xuatSVTotNghiep() const;         // Câu c
-    void xuatSVKhongTotNghiep() const;    // Câu d
-    void timMaxDaiHoc() const;            // Câu e
-    void timMaxCaoDang() const;           // Câu f
-    void thongKeKhongTotNghiep() const;   // Câu g
+    void xuatTatCa() const;               
+    void xuatSVTotNghiep() const;         
+    void xuatSVKhongTotNghiep() const;    
+    void timMaxDaiHoc() const;            
+    void timMaxCaoDang() const;           
+    void thongKeKhongTotNghiep() const;   
 };
 
 #endif

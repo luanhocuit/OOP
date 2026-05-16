@@ -17,6 +17,21 @@ void hienThiMenu() {
     cout << "Lua chon cua ban: ";
 }
 
+void inLuaChon(int choice, QuanLiNhanVien ql) {
+    switch (choice) {
+        case 1: ql.themLapTrinhVien(); break;
+        case 2: ql.themKiemChungVien(); break;
+        case 3: ql.xuatDanhSach(); break;
+        case 4: ql.xuatNVLuongThapHonTB(); break;
+        case 5: ql.xuatNVLuongCaoNhat(); break;
+        case 6: ql.xuatNVLuongThapNhat(); break;
+        case 7: ql.xuatLTVLuongCaoNhat(); break;
+        case 8: ql.xuatKCVLuongThapNhat(); break;
+        case 0: cout << "Dang thoat...\n"; break;
+        default: cout << "Lua chon khong hop le!\n";
+        }
+} ;
+
 int main() {
     QuanLiNhanVien ql;
     int choice;
@@ -25,18 +40,7 @@ int main() {
         hienThiMenu();
         cin >> choice;
 
-        switch (choice) {
-            case 1: ql.themLapTrinhVien(); break;
-            case 2: ql.themKiemChungVien(); break;
-            case 3: ql.xuatDanhSach(); break;
-            case 4: ql.xuatNVLuongThapHonTB(); break;
-            case 5: ql.xuatNVLuongCaoNhat(); break;
-            case 6: ql.xuatNVLuongThapNhat(); break;
-            case 7: ql.xuatLTVLuongCaoNhat(); break;
-            case 8: ql.xuatKCVLuongThapNhat(); break;
-            case 0: cout << "Dang thoat...\n"; break;
-            default: cout << "Lua chon khong hop le!\n";
-        }
+        inLuaChon(choice, ql) ;
     } while (choice != 0);
 
     return 0;

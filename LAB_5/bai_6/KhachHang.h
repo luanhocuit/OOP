@@ -16,12 +16,11 @@ public:
     virtual void xuat() const ;
     friend istream& operator >> (istream& in, KhachHang &x) ;
     friend ostream& operator << (ostream& out, KhachHang &x) ;
-    virtual double tinhTien() const = 0; // Hàm thuần ảo
+    virtual double tinhTien() const = 0;
     
     string getTen() const;
 };
 
-// Khách hàng Loại A
 class KhachHangA : public KhachHang {
 public:
     KhachHangA() ;
@@ -31,7 +30,6 @@ public:
     double tinhTien() const override;
 };
 
-// Khách hàng Loại B
 class KhachHangB : public KhachHang {
 private:
     int soNamThanThiet;
@@ -43,7 +41,6 @@ public:
     double tinhTien() const override;
 };
 
-// Khách hàng Loại C
 class KhachHangC : public KhachHang {
 public:
     KhachHangC() ;

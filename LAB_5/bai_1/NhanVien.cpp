@@ -13,7 +13,7 @@ NhanVien::~NhanVien() {} ;
 // Hàm nhập thông tin nhân viên
 void NhanVien::nhap() {
     cout << "Nhap ho ten: ";
-    cin.ignore();
+    cin.ignore(); // Bỏ qua dấu '\n' của việc nhập số lượng nhân viên
     getline(cin, hoTen);
     cout << "Nhap ngay sinh: ";
     cin >> ngay >> thang >> nam;
@@ -25,17 +25,17 @@ void NhanVien::xuat() const {
 }
 // Hàm overload nhập thông tin nhân viên
 istream& operator >> (istream& in, NhanVien& nv) {
-    nv.nhap();
+    nv.nhap(); // Do overload toán tử đã là hàm bạn => không thể override được nên gọi nv.nhap() ở đây
     return in;
 }
 // Hàm overload xuất thông tin nhân viên
 ostream& operator << (ostream& out, const NhanVien& nv) {
-    nv.xuat();
+    nv.xuat(); // Tương tự như trên
     return out;
 }
 // Hàm tính lương mặc định (có thể được override trong lớp con)
 double NhanVien::tinhLuong() const {
-    return 0.0; // Mặc định trả về 0, lớp con sẽ override
+    return 0.0; // Mặc định trả về 0, lớp con sẽ override ; 0.0 để hàm không cần chuyển từ int thành double
 }
 
 
@@ -57,20 +57,18 @@ NhanVienSanXuat::~NhanVienSanXuat() {} ;
 // Hàm nhập thông tin nhân viên sản xuất
 void NhanVienSanXuat::nhap() {
     NhanVien::nhap(); // Gọi hàm nhập của lớp cha
-    cout << "Nhap so san pham: ";
-    cin >> soSanPham;
-    cout << "Nhap luong co ban: ";
-    cin >> luongcoban;
+    cout << "Nhap so san pham: " ; cin >> soSanPham;
+    cout << "Nhap luong co ban: " ; cin >> luongcoban;
 }
 // Hàm xuất thông tin nhân viên sản xuất
 void NhanVienSanXuat::xuat() const {
     NhanVien::xuat(); // Gọi hàm xuất của lớp cha
-    cout << "So san pham: " << soSanPham << endl;
-    cout << "Luong co ban: " << luongcoban << endl;
+    cout << "So san pham: " << soSanPham << '\n' ;
+    cout << "Luong co ban: " << luongcoban << '\n' ;
 }
 // Hàm tính lương cho nhân viên sản xuất
 double NhanVienSanXuat::tinhLuong() const {
-    return luongcoban + soSanPham * 5000 ; // Lương = lương cơ bản + số sản phẩm * 5000
+    return luongcoban + (soSanPham * 5000) ; // Lương = lương cơ bản + số sản phẩm * 5000
 }
 
 
@@ -83,8 +81,7 @@ NhanVienVanPhong::~NhanVienVanPhong() {} ;
 // Hàm nhập thông tin nhân viên văn phòng
 void NhanVienVanPhong::nhap() {
     NhanVien::nhap(); // Gọi hàm nhập của lớp cha
-    cout << "Nhap so ngay lam viec: ";
-    cin >> songayLamViec;
+    cout << "Nhap so ngay lam viec: "; cin >> songayLamViec;
 }
 // Hàm xuất thông tin nhân viên văn phòng
 void NhanVienVanPhong::xuat() const {
@@ -93,6 +90,6 @@ void NhanVienVanPhong::xuat() const {
 }
 // Hàm tính lương cho nhân viên văn phòng
 double NhanVienVanPhong::tinhLuong() const {
-    return songayLamViec * 100000; // Lương = số ngày làm việc * 100000
+    return (long long)(songayLamViec * 100000); // Lương = số ngày làm việc * 100000
 }
 

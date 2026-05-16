@@ -15,6 +15,8 @@ public :
     virtual void xuat() const ;
     friend istream& operator >> (istream& in, GiaoDich &x) ;
     friend ostream& operator << (ostream& out, GiaoDich &x) ;
+    bool NamNhuan(int y) ;
+    int dayInMonth(int m, int y) ;
     virtual double TotalMoney() const = 0 ;
     int getThang() const ;
     int getNam() const ; 

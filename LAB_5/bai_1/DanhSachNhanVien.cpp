@@ -6,26 +6,26 @@ using namespace std;
 DanhSachNhanVien::DanhSachNhanVien() {}
 // Hàm destructor 
 DanhSachNhanVien::~DanhSachNhanVien() {
-    for (auto nv : dsSX) delete nv ;
-    for (auto nv : dsVP) delete nv ;
-    dsSX.clear() ;
-    dsVP.clear() ;
+    for (auto nv : dsSX) delete nv ; // Xóa từng phần tử trong danh sách nhân viên sản xuất
+    for (auto nv : dsVP) delete nv ; // Xóa từng phần tử trong danh sách nhân viên văn phòng
+    dsSX.clear() ; // Xóa vector chứa nhân viên sản xuất
+    dsVP.clear() ; // Xóa vector chứa nhân viên văn phòng
 }
 // Hàm nhập danh sách nhân viên
 void DanhSachNhanVien::nhapDanhSach() {
     int n1, n2;
     cout << "Nhap so luong NVSX: "; cin >> n1;
     for (int i = 0; i < n1; i++) {
-        NhanVien* nv = new NhanVienSanXuat();
-        cin >> *nv;
-        dsSX.push_back(nv);
+        NhanVien* nv = new NhanVienSanXuat(); // Cấp phát động con trỏ NhanVien -> NhanVienSanXuat
+        cin >> *nv; // Nhập thông tin của nhân viên sản xuất
+        dsSX.push_back(nv); // Đưa thông tin của nhân viên đó vào vector
     }
 
     cout << "Nhap so luong NVVP: "; cin >> n2;
     for (int i = 0; i < n2; i++) {
-        NhanVien* nv = new NhanVienVanPhong();
-        cin >> *nv;
-        dsVP.push_back(nv);
+        NhanVien* nv = new NhanVienVanPhong(); // Cấp phát động con trỏ NhanVien -> NhanVienVanPhong
+        cin >> *nv; // Nhập thông tin của nhân viên văn phòng
+        dsVP.push_back(nv); // Đưa thông tin của nhân viên đó vào vector
     }
 }
 // Hàm xuất danh sách nhân viên

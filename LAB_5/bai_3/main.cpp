@@ -3,6 +3,22 @@ using namespace std ;
 
 #include "QuanLiSinhVien.h"
 
+void inLuaChon(int choice, QuanLiSinhVien ql) {
+    switch (choice) {
+        case 1: ql.themCaoDang(); break;
+        case 2: ql.themDaiHoc(); break;
+        case 3: ql.xuatTatCa(); break;
+        case 4: ql.xuatSVTotNghiep(); break;
+        case 5: ql.xuatSVKhongTotNghiep(); break;
+        case 6: ql.timMaxDaiHoc(); break;
+        case 7: ql.timMaxCaoDang(); break;
+        case 8: ql.thongKeKhongTotNghiep(); break;
+        default :
+            cout << "Ban nhap sai roi. Vui long nhap lai !\n" ;
+        }
+} ;
+
+
 int main() {
     QuanLiSinhVien ql;
     int choice;
@@ -21,18 +37,7 @@ int main() {
         cout << "--------------------------------------------\n";
         cout << "Chon chuc nang: "; cin >> choice;
 
-        switch (choice) {
-            case 1: ql.themCaoDang(); break;
-            case 2: ql.themDaiHoc(); break;
-            case 3: ql.xuatTatCa(); break;
-            case 4: ql.xuatSVTotNghiep(); break;
-            case 5: ql.xuatSVKhongTotNghiep(); break;
-            case 6: ql.timMaxDaiHoc(); break;
-            case 7: ql.timMaxCaoDang(); break;
-            case 8: ql.thongKeKhongTotNghiep(); break;
-            default :
-                cout << "Ban nhap sai roi. Vui long nhap lai !\n" ;
-        }
+        inLuaChon(choice, ql) ;
     } while (choice != 0);
 
     return 0;

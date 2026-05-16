@@ -13,12 +13,12 @@ QuanLiGiaoDich::QuanLiGiaoDich() {
 // Hàm destructor của lớp quản lí giao dịch
 QuanLiGiaoDich::~QuanLiGiaoDich() {
     // Vì khai báo là con trỏ nên phải xóa (tương tự như việc cấp phát động)
-    for (auto x : dsDat) delete x ;
-    for (auto x : dsNha) delete x ;
-    for (auto x : dsChungCu) delete x ;
-    dsDat.clear();
-    dsNha.clear();
-    dsChungCu.clear();
+    for (auto x : dsDat) delete x ; // Xóa từng giao dịch đất trong danh sách giao dịch đất
+    for (auto x : dsNha) delete x ; // Xóa từng giao dịch nhà trong danh sách giao dịch nhà
+    for (auto x : dsChungCu) delete x ; // Xóa từng giao dịch chung cư trong danh sách giao dịch chung cư
+    dsDat.clear(); // Xóa vector chứa danh sách giao dịch đất
+    dsNha.clear(); // Xóa vector chứa danh sách giao dịch nhà
+    dsChungCu.clear(); // Xóa vector chứa danh sách giao dịch chung cư
 }
 // Hàm thêm giao dịch đất vào danh sách
 void QuanLiGiaoDich::themGiaoDichDat(Dat* d) { 
@@ -57,7 +57,7 @@ double QuanLiGiaoDich::trungBinhThanhTienChungCu() const {
     for (auto x : dsChungCu) {
         tong += x->TotalMoney();
     }
-    return tong / dsChungCu.size();
+    return tong / dsChungCu.size(); // tổng tiền chia cho số lượng giao dịch chung cư
 }
 
 // Hàm tính Giao dịch nhà có giá trị cao nhất

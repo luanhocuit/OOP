@@ -12,14 +12,14 @@ public:
     QuanLiNhanVien();
     ~QuanLiNhanVien();
 
-    void themLapTrinhVien();          // Yeu cau a
-    void themKiemChungVien();         // Yeu cau a
-    void xuatDanhSach() const;        // Yeu cau b
-    void xuatNVLuongThapHonTB() const; // Yeu cau c
-    void xuatNVLuongCaoNhat() const;   // Yeu cau d
-    void xuatNVLuongThapNhat() const;  // Yeu cau e
-    void xuatLTVLuongCaoNhat() const;  // Yeu cau f
-    void xuatKCVLuongThapNhat() const; // Yeu cau g
+    void themLapTrinhVien();          
+    void themKiemChungVien();         
+    void xuatDanhSach() const;        
+    void xuatNVLuongThapHonTB() const; 
+    void xuatNVLuongCaoNhat() const;   
+    void xuatNVLuongThapNhat() const;  
+    void xuatLTVLuongCaoNhat() const;  
+    void xuatKCVLuongThapNhat() const; 
 };
 
 #endif

@@ -5,24 +5,24 @@ using namespace std ;
 GiaoDich::GiaoDich() {
     maGD = "" ;
     ngay = thang = nam = 1 ;
-    DonGia = dientich = 0.0 ;
+    DonGia = dientich = 0.0 ; // Gán 0.0 do kiểu dữ liệu là double (nếu để 0 thì máy phải chuyển từ int về double)
 }
 // Hàm destructor của lớp giao dịch
 GiaoDich::~GiaoDich() {}
 // Hàm check năm nhuận
-bool NamNhuan(int y) {
+bool GiaoDich::NamNhuan(int y) {
     // Chia hết cho 4 và không chia hết cho 100 hoặc chia hết cho 400 thì là năm nhuận
     return (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0) ; 
 }
 // Hàm trả về số ngày trong tháng m của năm y
-int dayInMonth(int m, int y) {
+int GiaoDich::dayInMonth(int m, int y) {
     switch(m) {
         case 1 : case 3 : case 5 : case 7 : case 8 : case 10 : case 12 :
             return 31 ;
         case 4 : case 6 : case 9 : case 11 :
             return 30 ;
         case 2 : 
-            return NamNhuan(y) ? 29 : 28 ;
+            return NamNhuan(y) ? 29 : 28 ; // Nếu là năm nhuận thì 29 ngày, không thì 28 ngày
         default : 
             return 0 ;
     }
@@ -68,10 +68,11 @@ istream& operator >> (istream& in, GiaoDich &x) {
 ostream& operator << (ostream& out, GiaoDich &x) {
     x.xuat() ; return out ;
 }
-
+// Hàm get tháng
 int GiaoDich::getThang() const { 
     return thang ; 
 }
+// Hàm get năm
 int GiaoDich::getNam() const { 
     return nam ; 
 }
@@ -101,7 +102,7 @@ void Dat::xuat() const {
 // Hàm tính tổng tiền của giao dịch đất
 double Dat::TotalMoney() const {
     if (type == 'B' || type == 'C') return dientich * DonGia ; // Nếu loại B hoặc C => Tiền = Diện tích * Đơn giá
-    else return dientich * DonGia * 1.5 ; // Nếu là loại A => Tiền = Diện tích * Đơn giá * 1.5
+    return dientich * DonGia * 1.5 ; // Nếu là loại A => Tiền = Diện tích * Đơn giá * 1.5
 }
 
 
@@ -112,7 +113,6 @@ Nha::Nha() : GiaoDich() {// : GiaoDich() => khởi tạo constructor của lớp
 }
 // Hàm destructor của lớp nhà
 Nha::~Nha() {}
-
 // Hàm nhập vào thông tin giao dịch nhà
 void Nha::nhap() {
     GiaoDich::nhap() ;// Gọi hàm này để nhập thông tin giao dịch
@@ -133,7 +133,7 @@ void Nha::xuat() const {
 // Hàm tính tổng tiền giao dịch nhà
 double Nha::TotalMoney() const {
     if (loainha == "caocap") return dientich * DonGia ; // Nếu là loại cao cấp => Tiền = Diện tích * Đơn giá
-    else return dientich * DonGia * 0.9 ; // Nếu là loại thường => Tiền = Diện tích * Đơn giá * 90%
+    return dientich * DonGia * 0.9 ; // Nếu là loại thường => Tiền = Diện tích * Đơn giá * 90%
 }
 
 
@@ -166,5 +166,5 @@ void ChungCu::xuat() const {
 double ChungCu::TotalMoney() const {
     if(vitriTang == 1) return dientich * DonGia * 2 ; // Nếu ở tầng 1 => Tiền = Diện tích * Đơn giá * 2
     else if (vitriTang >= 15) return dientich * DonGia * 1.2 ; // Nếu ở tầng 15 trở lên => Tiền = Diện tích * Đơn giá * 1.2
-    else return dientich * DonGia ; // Các tầng còn lại => Tiền = Diện tích * Đơn giá
+    return dientich * DonGia ; // Các tầng còn lại => Tiền = Diện tích * Đơn giá
 }
