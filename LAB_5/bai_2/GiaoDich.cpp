@@ -57,7 +57,7 @@ void GiaoDich::nhap() {
 void GiaoDich::xuat() const {
     cout << "Ma GD : " << maGD << '\n' ;
     cout << "Ngay : " << ngay << '/' << thang << '/' << nam << '\n' ;
-    cout << "Don gia : " << DonGia << "(dong)" << '\n' 
+    cout << "Don gia : " << (long long)DonGia << "(dong)" << '\n' 
          << "Dien tich : " << dientich << "(m^2)" << '\n' ;
 }
 // Hàm overload toán tử >> 

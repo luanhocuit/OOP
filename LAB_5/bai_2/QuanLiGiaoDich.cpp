@@ -74,7 +74,7 @@ void QuanLiGiaoDich::xuatNhaGiaTriCaoNhat() const {
     }
     cout << "GIAO DICH NHA CO GIA TRI CAO NHAT\n" ;
     maxNha->xuat() ;
-    cout << "=> Thanh tien: " << fixed << setprecision(0) << maxNha->TotalMoney() << " (dong)" << '\n' ;
+    cout << "=> Thanh tien: " << fixed << setprecision(0) << (long long)maxNha->TotalMoney() << " (dong)" << '\n' ;
 }
 
 // Hàm xuất các giao dịch trong tháng 12/2024 (nếu có)

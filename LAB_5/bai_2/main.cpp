@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void inLuaChon(int choice, QuanLiGiaoDich quanLi) {
+void inLuaChon(int choice, QuanLiGiaoDich &quanLi) {
     switch (choice) {
         case 1: {
             Dat* d = new Dat();
