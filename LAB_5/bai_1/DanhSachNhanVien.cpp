@@ -33,7 +33,7 @@ void DanhSachNhanVien::xuatDanhSach() const {
     cout << "\n--- DANH SACH NHAN VIEN SAN XUAT ---\n";
     for (auto nv : dsSX) cout << *nv << endl;
 
-    cout << "\n--- DANH SACH NHAN VIEN VAN PHONG ---\n";
+    cout << "--- DANH SACH NHAN VIEN VAN PHONG ---\n";
     for (auto nv : dsVP) cout << *nv << endl;
 }
 // Hàm tính tổng lương của tất cả nhân viên

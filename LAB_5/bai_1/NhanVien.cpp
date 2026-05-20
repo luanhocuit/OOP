@@ -64,11 +64,11 @@ void NhanVienSanXuat::nhap() {
 void NhanVienSanXuat::xuat() const {
     NhanVien::xuat(); // Gọi hàm xuất của lớp cha
     cout << "So san pham: " << soSanPham << '\n' ;
-    cout << "Luong co ban: " << luongcoban << '\n' ;
+    cout << "Luong co ban: " << (long long)luongcoban << '\n' ;
 }
 // Hàm tính lương cho nhân viên sản xuất
 double NhanVienSanXuat::tinhLuong() const {
-    return luongcoban + (soSanPham * 5000) ; // Lương = lương cơ bản + số sản phẩm * 5000
+    return (long long)(luongcoban + (soSanPham * 5000)) ; // Lương = lương cơ bản + số sản phẩm * 5000
 }
 
 

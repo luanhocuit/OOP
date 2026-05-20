@@ -8,12 +8,12 @@ int main() {
     ql.nhapDanhSach();
     ql.xuatDanhSach();
 
-    cout << "\n--- TONG LUONG TOAN CONG TY: " << ql.tinhTongLuong() << " VND" << endl;
+    cout << "--- TONG LUONG TOAN CONG TY: " << (long long)ql.tinhTongLuong() << " VND" << endl;
     NhanVienSanXuat* nvsxMin = ql.LuongThapNhat();
     if (nvsxMin) {
         cout << "\n--- NHAN VIEN SAN XUAT CO LUONG THAP NHAT:" << endl;
         cout << *nvsxMin; 
-        cout << "Luong nhan duoc : " << nvsxMin->tinhLuong() << " VND" << endl;
+        cout << "Luong nhan duoc : " << (long long)nvsxMin->tinhLuong() << " VND" << endl;
     } else {
         cout << "\n--- Khong co nhan vien san xuat nao trong danh sach." << endl;
     }
