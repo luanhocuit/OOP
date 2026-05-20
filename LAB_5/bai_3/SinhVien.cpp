@@ -51,7 +51,7 @@ void CaoDang::nhap() {
     SinhVien::nhap() ; // Nhập thông tin chung của sinh viên rồi mới nhập thông tin cần có của sinh viên cao đẳng
     cin.ignore() ;
     cout << "Nhap dia chi : " ; getline(cin, diachi) ;
-    cout << "Nhap diem thi tot nghiem : " ; cin >> diemthitotnghiep ;
+    cout << "Nhap diem thi tot nghiep : " ; cin >> diemthitotnghiep ;
 }
 // Hàm in ra thông tin của sinh viên cao đẳng
 void CaoDang::xuat() const {

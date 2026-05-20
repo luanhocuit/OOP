@@ -3,7 +3,7 @@ using namespace std ;
 
 #include "QuanLiSinhVien.h"
 
-void inLuaChon(int choice, QuanLiSinhVien ql) {
+void inLuaChon(int choice, QuanLiSinhVien &ql) {
     switch (choice) {
         case 1: ql.themCaoDang(); break;
         case 2: ql.themDaiHoc(); break;
@@ -13,6 +13,9 @@ void inLuaChon(int choice, QuanLiSinhVien ql) {
         case 6: ql.timMaxDaiHoc(); break;
         case 7: ql.timMaxCaoDang(); break;
         case 8: ql.thongKeKhongTotNghiep(); break;
+        case 0:
+            cout << "Dang thoat chuong trinh...\n";
+            break;
         default :
             cout << "Ban nhap sai roi. Vui long nhap lai !\n" ;
         }
